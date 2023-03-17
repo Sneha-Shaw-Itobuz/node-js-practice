@@ -31,7 +31,18 @@ export const getWeatherData = (location) => {
   let weatherData = data.find(
     (item) => item.location.name.toLowerCase() == location.toLowerCase()
   );
-  return weatherData;
+  if (weatherData !== undefined) {
+    return {
+      success: true,
+      message: "Data fetched successfully",
+      data: weatherData,
+    };
+  } else {
+    return {
+      success: false,
+      message: "City not found",
+    };
+  }
 };
 
 export const addLocation = (location, current) => {
@@ -64,7 +75,6 @@ export const updateLocation = (city, obj) => {
 
 export const deleteLocation = (city) => {
   const data = readFileData();
-
   let index = data.findIndex(
     (item) => item.location.name.toLowerCase() == city.toLowerCase()
   );
