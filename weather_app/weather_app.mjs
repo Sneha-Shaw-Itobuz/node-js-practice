@@ -12,12 +12,10 @@ function getDataFromRoutes(req, res) {
   const parsedUrl = url.parse(req.url, true);
 
   const path = parsedUrl.pathname;
-  console.log(parsedUrl);
 
   if (path === "/get-weather") {
     let q = parsedUrl.query;
 
-    console.log(q.city);
     let data = getWeatherData(q.city);
 
     res.end(JSON.stringify(data));

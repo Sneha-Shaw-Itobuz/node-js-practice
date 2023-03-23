@@ -55,7 +55,7 @@ export const addLocation = (location, current) => {
   });
   if (!isPresent) {
     data.push({ location, current });
-    console.log(data);
+   
     writeFileData(data);
   }
 };
@@ -81,7 +81,7 @@ export const deleteLocation = (city) => {
   if (index > -1) {
     data.splice(index, 1);
     writeFileData(data);
-    console.log(data);
+    
   } else {
     console.log("City not found");
   }
